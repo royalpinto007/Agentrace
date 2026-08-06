@@ -90,6 +90,8 @@ Point it somewhere else with `--dir` or at one file with `--file`.
 
 ## Install
 
+**PyPI:** https://pypi.org/project/agentrace-cli/
+
 ```bash
 pip install agentrace-cli
 agentrace stats    # reads ~/.claude/projects by default
