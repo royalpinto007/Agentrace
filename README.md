@@ -109,8 +109,9 @@ Zero dependencies beyond `rich`. No API keys, no network: it reads local files.
 
 ## Design notes
 
-**Two passes over the transcript, not one.** Results can appear before every use has been seen in
-unusual orderings. A 34MB file is cheap to scan twice compared to getting the pairing subtly wrong.
+**One pass over the transcript, two maps.** Results can appear before every use has been seen in
+unusual orderings. The pass collects tool_use and tool_result blocks by tool_use_id and joins
+them afterwards.
 
 **A torn final line is skipped, not fatal.** A live session being appended to yields half-written
 JSON. Refusing to parse would mean you cannot analyse a run until it is over, which is exactly
