@@ -1,6 +1,6 @@
 # agentrace
 
-[![ci](https://github.com/royalpinto007/agentrace/actions/workflows/ci.yml/badge.svg)](https://github.com/royalpinto007/agentrace/actions/workflows/ci.yml)
+[![ci](https://github.com/AgentPostmortem/agentrace/actions/workflows/ci.yml/badge.svg)](https://github.com/AgentPostmortem/agentrace/actions/workflows/ci.yml)
 [![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![python](https://img.shields.io/badge/python-3.11%20%7C%203.12-blue.svg)](pyproject.toml)
 
