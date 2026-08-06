@@ -91,9 +91,18 @@ Point it somewhere else with `--dir` or at one file with `--file`.
 ## Install
 
 ```bash
+pip install agentrace-cli
+agentrace stats    # reads ~/.claude/projects by default
+```
+
+The distribution is `agentrace-cli` (the bare name is taken on PyPI by an unrelated
+project); the import path and the command are both `agentrace`.
+
+From a clone, for development:
+
+```bash
 pip install -e ".[dev]"
 pytest -q          # 17 tests
-agentrace stats    # reads ~/.claude/projects by default
 ```
 
 No session of your own to look at yet? A synthetic one ships with the repo:

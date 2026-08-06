@@ -1,8 +1,10 @@
 [project]
-name = "agentrace"
+name = "agentrace-cli"
 version = "0.1.0"
 description = "Observability for Claude Code subagents. Parses session transcripts, surfaces what agents actually did, and flags the failure patterns."
 requires-python = ">=3.11"
+readme = "README.md"
+license = { file = "LICENSE" }
 dependencies = ["rich>=13.0"]
 
 [tool.setuptools]
@@ -10,6 +12,11 @@ dependencies = ["rich>=13.0"]
 # video) as a second top-level package and refuse to build. tests/ is auto-ignored; assets/
 # is not.
 packages = ["agentrace"]
+
+[project.urls]
+Homepage = "https://github.com/AgentPostmortem/Agentrace"
+Repository = "https://github.com/AgentPostmortem/Agentrace"
+Issues = "https://github.com/AgentPostmortem/Agentrace/issues"
 
 [project.optional-dependencies]
 dev = ["pytest>=8.3", "ruff>=0.7"]
