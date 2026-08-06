@@ -179,6 +179,12 @@ def test_hedged_claim_is_caught_but_only_low():
     assert findings and findings[0].severity == "low"
 
 
+def test_hedged_claim_counts_every_occurrence():
+    r = _run(result="probably one. probably two. probably three. " + "x" * 200)
+    findings = [f for f in analyse(r) if f.check == "hedged_claim"]
+    assert findings and "3 hedged claim(s)" in findings[0].message
+
+
 def test_many_urls_without_verification_is_flagged():
     urls = " ".join(f"https://example{i}.com/careers" for i in range(8))
     assert "unverified_urls" in _codes(_run(result=urls + " " + "x" * 200))

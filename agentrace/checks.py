@@ -96,18 +96,20 @@ def check_unverified_claim(run: AgentRun) -> list[Finding]:
         r"\bcould not (?:independently )?verify\b",
         r"\bunverified\b",
     ]
-    hits = []
+    hits = 0
+    first_context = ""
     for p in hedges:
         for m in re.finditer(p, run.result, re.I):
-            hits.append(_context(run.result, m.start()))
-            break
+            if hits == 0:
+                first_context = _context(run.result, m.start())
+            hits += 1
     if hits:
         return [
             Finding(
                 "hedged_claim",
                 "low",
-                f"{len(hits)} hedged claim(s). Fine if the hedge survives downstream, a problem if it gets flattened into fact.",
-                hits[0],
+                f"{hits} hedged claim(s). Fine if the hedge survives downstream, a problem if it gets flattened into fact.",
+                first_context,
             )
         ]
     return []
