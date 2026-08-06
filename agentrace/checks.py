@@ -100,7 +100,6 @@ def check_unverified_claim(run: AgentRun) -> list[Finding]:
     for p in hedges:
         for m in re.finditer(p, run.result, re.I):
             hits.append(_context(run.result, m.start()))
-            break
     if hits:
         return [
             Finding(
